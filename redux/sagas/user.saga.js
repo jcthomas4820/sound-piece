@@ -1,8 +1,12 @@
-import { getAuthToken } from "../slices/user.slice"
-import { takeLatest } from 'redux-saga/effects';
+import { getAuthToken, setAuthToken } from "../slices/user.slice"
+import { takeLatest, put } from 'redux-saga/effects';
+import axios from 'axios';
+import { useDispatch } from "react-redux";
 
-export function requestAuthToken(){
-    console.log('requesting auth token...')
+export function* requestAuthToken(){
+    const response = yield axios.get('api/auth')
+    const authToken = response.data.authToken
+    yield put(setAuthToken(authToken))
 }
 
 export function* watchForGetAuthToken() {
