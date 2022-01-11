@@ -12,6 +12,7 @@ export const userSlice = createSlice({
         getAuthToken: (state) => {state.isPending = true},
         setAuthToken: (state, action) => {
             state.authToken = action.payload
+            state.isPending = false
         }
     }
 })
