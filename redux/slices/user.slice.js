@@ -10,6 +10,7 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         getAuthToken: (state) => {state.isPending = true},
+        extractAuthTokenFromUrl: (state) => {state.isPending = true},
         setAuthToken: (state, action) => {
             state.authToken = action.payload
             state.isPending = false
@@ -17,6 +18,6 @@ export const userSlice = createSlice({
     }
 })
 
-export const { setAuthToken, getAuthToken } = userSlice.actions
+export const { setAuthToken, getAuthToken, extractAuthTokenFromUrl } = userSlice.actions
 export const selectAuthToken = state => state.user.authToken
 export default userSlice.reducer
