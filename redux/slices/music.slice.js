@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import defaultArtistImg from '../../public/default-artist-img.png'
 
 const initialState = {
     isPending: false,
     artist: {
-        img: '',
+        img: defaultArtistImg,
         name: '',
         description: '',
     }
