@@ -1,12 +1,14 @@
-import { useSelector } from "react-redux"
-import { selectArtist } from "../redux/slices/music.slice"
+import { useDispatch, useSelector } from "react-redux"
+import { addToPlaylist, selectArtist } from "../redux/slices/music.slice"
 import Image from 'next/image'
 import Playlist from "../components/playlist"
 
 export default function Artist(){
 
+    const dispatch = useDispatch()
+
     const artist = useSelector(selectArtist)
-    const onClick = () => console.log('adding artist...')
+    const onAddClick = () => dispatch(addToPlaylist())
 
     return(
         <>
@@ -20,7 +22,7 @@ export default function Artist(){
             <br />
             <span>{artist.description}</span>
             <br />
-            <button onClick={onClick}>Add</button>
+            <button onClick={onAddClick}>Add</button>
             <br />
             <Playlist />
         </>
