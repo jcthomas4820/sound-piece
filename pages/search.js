@@ -24,7 +24,7 @@ export default function Search(){
         <>
             <h1>Search Page</h1>
             <input value={artistInput} onChange={onArtistInputChange}></input>
-            <Link href="/artist">
+            <Link href="/artist" passHref={true}>
                 <button onClick={onClickSearch}>Search</button>
             </Link>
             <br />
