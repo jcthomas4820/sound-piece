@@ -1,12 +1,14 @@
 import { useState } from "react"
-import { useSelector } from "react-redux"
-import { selectPlaylistArtists } from "../redux/slices/music.slice"
+import { useDispatch, useSelector } from "react-redux"
+import { generatePlaylist, selectPlaylistArtists } from "../redux/slices/music.slice"
 import { getUniqueID } from "../utils/getUniqueID"
 
 function PlaylistModal(props){
 
+    const dispatch = useDispatch()
+
     const playlistArtists = useSelector(selectPlaylistArtists)
-    const onGenerateClick = () => console.log('generating playlist...')
+    const onGenerateClick = () => dispatch(generatePlaylist())
 
     return(
         <> 

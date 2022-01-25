@@ -23,10 +23,13 @@ export const musicSlice = createSlice({
             state.artist = action.payload
             state.isPending = false
         },
+        generatePlaylist: (state) => {
+            state.isPending = true
+        },
     }
 })
 
-export const { getArtist, setArtist } = musicSlice.actions
+export const { getArtist, setArtist, generatePlaylist } = musicSlice.actions
 export const selectArtist = state => state.music.artist
 export const selectPlaylistArtists = state => state.music.playlist.artists
 export default musicSlice.reducer
