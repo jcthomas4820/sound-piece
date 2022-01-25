@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"
 import { selectArtist } from "../redux/slices/music.slice"
 import Image from 'next/image'
+import Playlist from "../components/playlist"
 
 export default function Artist(){
 
@@ -20,6 +21,8 @@ export default function Artist(){
             <span>{artist.description}</span>
             <br />
             <button onClick={onClick}>Add</button>
+            <br />
+            <Playlist />
         </>
     )
 }

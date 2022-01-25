@@ -7,8 +7,11 @@ const initialState = {
         img: defaultArtistImg,
         name: '',
         description: '',
+        //  TODO - 5 song previews
+    },
+    playlist: {
+        artists: []
     }
-    //  TODO - 5 song previews
 }
 
 export const musicSlice = createSlice({
@@ -19,10 +22,11 @@ export const musicSlice = createSlice({
         setArtist: (state, action) => {
             state.artist = action.payload
             state.isPending = false
-        }
+        },
     }
 })
 
 export const { getArtist, setArtist } = musicSlice.actions
 export const selectArtist = state => state.music.artist
+export const selectPlaylistArtists = state => state.music.playlist.artists
 export default musicSlice.reducer
