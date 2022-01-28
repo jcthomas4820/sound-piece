@@ -1,5 +1,5 @@
 import { all } from "@redux-saga/core/effects";
-import { watchForExtractAuthTokenFromUrl, watchForGetAuthToken } from "./user.saga";
+import { watchForExtractAuthTokenFromUrl, watchForGetAuthToken, watchForGetUserID } from "./user.saga";
 import { watchForGeneratePlaylist, watchForGetArtist } from "./music.saga";
 
 export default function* rootSaga(){
@@ -8,5 +8,6 @@ export default function* rootSaga(){
         watchForExtractAuthTokenFromUrl(),
         watchForGetArtist(),
         watchForGeneratePlaylist(),
+        watchForGetUserID(),
     ])
 }

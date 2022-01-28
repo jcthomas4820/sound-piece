@@ -1,4 +1,4 @@
-import { getAuthToken, setAuthToken, extractAuthTokenFromUrl } from "../slices/user.slice"
+import { getAuthToken, setAuthToken, extractAuthTokenFromUrl, getUserID } from "../slices/user.slice"
 import { takeLatest, put } from 'redux-saga/effects';
 import axios from 'axios';
 import { useDispatch } from "react-redux";
@@ -29,10 +29,20 @@ export function* extractAuthToken(){
     yield put(setAuthToken(authToken))
 }
 
+export function* requestUserID(){
+    console.log('in saga')
+    const response = yield axios.get('api/user')
+    console.log('response', response)
+}
+
 export function* watchForGetAuthToken() {
     yield takeLatest(getAuthToken, requestAuthToken)
 }
 
 export function* watchForExtractAuthTokenFromUrl() {
     yield takeLatest(extractAuthTokenFromUrl, extractAuthToken)
+}
+
+export function* watchForGetUserID(){
+    yield takeLatest(getUserID, requestUserID)
 }

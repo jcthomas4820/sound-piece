@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import Playlist from "../components/playlist"
 import { getArtist } from "../redux/slices/music.slice"
-import { extractAuthTokenFromUrl } from "../redux/slices/user.slice"
+import { extractAuthTokenFromUrl, getUserID } from "../redux/slices/user.slice"
 
 export default function Search(){
 
@@ -11,6 +11,7 @@ export default function Search(){
 
     useEffect(()=>{
         dispatch(extractAuthTokenFromUrl())
+        dispatch(getUserID())
     },[dispatch])
 
     const [artistInput, setArtistInput] = useState('')
