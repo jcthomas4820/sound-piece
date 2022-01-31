@@ -1,0 +1,1 @@
+export const GET_USER_PROFILE = 'https://api.spotify.com/v1/me';

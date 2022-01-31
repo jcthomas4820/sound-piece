@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     authToken: '',
+    userID: '',
     isPending: false,
 }
 
@@ -17,10 +18,14 @@ export const userSlice = createSlice({
         },
         getUserID: (state) => {
             state.isPending = true
+        },
+        setUserID: (state, action) => {
+            state.userID = action.payload
+            state.isPending = false
         }
     }
 })
 
-export const { setAuthToken, getAuthToken, extractAuthTokenFromUrl, getUserID } = userSlice.actions
+export const { setAuthToken, getAuthToken, extractAuthTokenFromUrl, getUserID, setUserID } = userSlice.actions
 export const selectAuthToken = state => state.user.authToken
 export default userSlice.reducer
