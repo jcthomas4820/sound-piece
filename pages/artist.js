@@ -12,19 +12,14 @@ export default function Artist(){
 
     return(
         <>
-            <h1>Artist Page</h1>
-            <Image 
-                src={artist.img}
-                alt={'artist-image'}
-            />
-            <br />
+            <div alignSelf>
+                <Image 
+                    src={artist.img}
+                    alt={'artist-image'}
+                />
+            </div>
             <span>{artist.name}</span>
-            <br />
-            <span>{artist.description}</span>
-            <br />
-            <button onClick={onAddClick}>Add</button>
-            <br />
-            <Playlist />
+            <button onClick={onAddClick} style={{alignSelf: 'start'}}>Add</button>
         </>
     )
 }

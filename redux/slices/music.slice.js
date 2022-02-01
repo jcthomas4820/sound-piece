@@ -5,8 +5,7 @@ const initialState = {
     isPending: false,
     artist: {
         img: defaultArtistImg,
-        name: '',
-        description: '',
+        name: ''
         //  TODO - 5 song previews
         //  TODO - may need to keep track of artist ids
     },
