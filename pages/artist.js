@@ -12,7 +12,7 @@ export default function Artist(){
 
     return(
         <>
-            <div alignSelf>
+            <div style={{alignSelf: 'start'}}>
                 <Image 
                     src={artist.img}
                     alt={'artist-image'}

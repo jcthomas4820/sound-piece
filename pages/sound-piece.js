@@ -7,7 +7,7 @@ export default function SoundPiece(){
         <div style={{display: 'flex', flexDirection: 'column'}}>
             <input style={{alignSelf: 'start'}}></input>
             <Artist />
-            <div alignSelf>
+            <div style={{alignSelf: 'start'}}>
                 <Playlist />
             </div>
         </div>
