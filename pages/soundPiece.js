@@ -1,15 +1,14 @@
 import Playlist from "../components/playlist";
+import Search from "../components/search";
 import Artist from "./artist";
 
 export default function SoundPiece(){
 
     return(
         <div style={{display: 'flex', flexDirection: 'column'}}>
-            <input style={{alignSelf: 'start'}}></input>
+            <Search />
             <Artist />
-            <div style={{alignSelf: 'start'}}>
-                <Playlist />
-            </div>
+            <Playlist />
         </div>
     )
 }

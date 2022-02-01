@@ -11,15 +11,15 @@ export default function Artist(){
     const onAddClick = () => dispatch(addToPlaylist())
 
     return(
-        <>
-            <div style={{alignSelf: 'start'}}>
-                <Image 
-                    src={artist.img}
-                    alt={'artist-image'}
-                />
-            </div>
+        <div style={{alignSelf: 'start'}}>
+            <Image 
+                src={artist.img}
+                alt={'artist-image'}
+            />
+            <br />
             <span>{artist.name}</span>
-            <button onClick={onAddClick} style={{alignSelf: 'start'}}>Add</button>
-        </>
+            <br />
+            <button onClick={onAddClick}>Add</button>
+        </div>
     )
 }

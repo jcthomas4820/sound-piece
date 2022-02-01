@@ -34,6 +34,8 @@ export default function Playlist(){
     const flipOpen = () => setOpen(!open)
 
     return (
-        !open ? <PlaylistButton flipOpen={flipOpen}/> : <PlaylistModal flipOpen={flipOpen} />
+        <div style={{alignSelf: 'start'}}>
+            {!open ? <PlaylistButton flipOpen={flipOpen}/> : <PlaylistModal flipOpen={flipOpen} />}
+        </div>
     )
 }
