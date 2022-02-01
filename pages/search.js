@@ -23,6 +23,9 @@ export default function Search(){
 
     return(
         <>
+            <Link href='/soundPiece'>
+                <a>Sound Piece</a>
+            </Link>
             <h1>Search Page</h1>
             <input value={artistInput} onChange={onArtistInputChange}></input>
             <Link href="/artist" passHref={true}>

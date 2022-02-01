@@ -17,7 +17,7 @@ export default async function handler(req, res) {
         const userID = response.data.id
         res.status(200).json({userID: userID})
     } catch(error){
-        console.log('error response!', response)
+        console.log('error response!', error)
     }
     
 }
