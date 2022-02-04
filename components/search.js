@@ -8,7 +8,7 @@ export default function Search(){
     const [value, setValue] = useState('')
 
     const onChange = (e) => setValue(e.target.value)
-    const onKeyDown = (e) => {if (e.key === ENTER) dispatch(getArtist())}
+    const onKeyDown = (e) => {if (e.key === ENTER) dispatch(getArtist(value))}
 
     return(
         <input style={{alignSelf: 'start'}} value={value} onChange={onChange} onKeyDown={onKeyDown} ></input>

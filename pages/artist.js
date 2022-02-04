@@ -15,6 +15,8 @@ export default function Artist(){
             <Image 
                 src={artist.img}
                 alt={'artist-image'}
+                width={500}
+                height={500}
             />
             <br />
             <span>{artist.name}</span>

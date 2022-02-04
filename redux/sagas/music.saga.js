@@ -1,8 +1,22 @@
-import { takeLatest, put } from 'redux-saga/effects';
+import axios from 'axios';
+import { takeLatest, put, select } from 'redux-saga/effects';
 import { generatePlaylist, getArtist, setArtist } from "../slices/music.slice";
+import { selectAuthToken } from '../slices/user.slice';
 
-function* requestArtist(){
-    console.log('requestArtist()')
+function* requestArtist({ payload }){
+
+    const artistName = payload
+    const authToken = yield select(selectAuthToken)
+    const config = {
+        headers: {
+            'Authorization': 'Bearer ' + authToken,
+            'Artist-Name': artistName,
+        }
+    }
+    const response = yield axios.get('api/music/artist', config)
+    const artistData = response.data.artist
+    
+    yield put(setArtist(artistData))
 } 
 
 function* requestGeneratePlaylist(){

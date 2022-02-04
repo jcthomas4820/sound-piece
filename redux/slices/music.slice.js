@@ -4,14 +4,15 @@ import defaultArtistImg from '../../public/default-artist-img.png'
 const initialState = {
     isPending: false,
     artist: {
+        name: '',
         img: defaultArtistImg,
-        name: ''
-        //  TODO - 5 song previews
-        //  TODO - may need to keep track of artist ids
+        id: '',
+        uri: '',
+        tracks: [],
     },
     playlist: {
-        artists: []
-        //  TODO - may need to keep track of artist ids
+        artists: [],
+        tracks: [],
     }
 }
 
@@ -19,18 +20,18 @@ export const musicSlice = createSlice({
     name: 'music',
     initialState,
     reducers: {
-        getArtist: (state) => {state.isPending = true},
+        getArtist: (state, action) => {state.isPending = true},
         setArtist: (state, action) => {
             state.artist = action.payload
             state.isPending = false
         },
         addToPlaylist: (state) => {
             state.playlist.artists.push(state.artist.name)
+            //  TODO - push track uri's
         },
         generatePlaylist: (state) => {
             state.isPending = true
         },
-        //  TODO - setIsPending (useful for sagas to call directly)
     }
 })
 
