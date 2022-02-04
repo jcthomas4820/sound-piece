@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { generatePlaylist, selectPlaylistArtists } from "../redux/slices/music.slice"
 import { getUniqueID } from "../utils/getUniqueID"
 
-//  TODO - add name field
-
 function PlaylistModal(props){
 
     const dispatch = useDispatch()
@@ -14,7 +12,7 @@ function PlaylistModal(props){
 
     return(
         <> 
-            {playlistArtists.map(artist => <li key={getUniqueID()}>{artist}</li>)}
+            {playlistArtists.map(artist => <li key={getUniqueID()}>{artist.name}</li>)}
             <button onClick={onGenerateClick}>Generate</button>
             <br />
             <button onClick={props.flipOpen}>Close</button> 

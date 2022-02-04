@@ -26,8 +26,8 @@ export const musicSlice = createSlice({
             state.isPending = false
         },
         addToPlaylist: (state) => {
-            state.playlist.artists.push(state.artist.name)
-            //  TODO - push track uri's
+            state.playlist.artists.push(state.artist)
+            state.playlist.tracks = [...state.playlist.tracks, state.artist.tracks.slice(0,5)]
         },
         generatePlaylist: (state) => {
             state.isPending = true
