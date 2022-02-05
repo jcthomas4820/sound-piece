@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { takeLatest, put, select } from 'redux-saga/effects';
-import { generatePlaylist, getArtist, setArtist } from "../slices/music.slice";
-import { selectAuthToken } from '../slices/user.slice';
+import { generatePlaylist, getArtist, selectPlaylistTrackURIs, setArtist } from "../slices/music.slice";
+import { selectAuthToken, selectUserID } from '../slices/user.slice';
+
+//  TODO - define endpoints in constants
 
 function* requestArtist({ payload }){
 
@@ -19,8 +21,27 @@ function* requestArtist({ payload }){
     yield put(setArtist(artistData))
 } 
 
-function* requestGeneratePlaylist(){
-    console.log('requestGeneratePlaylist()')
+function* requestGeneratePlaylist({ payload }){
+    const playlistName = payload;
+    const authToken = yield select(selectAuthToken)
+    const userID = yield select(selectUserID)
+    const trackURIs = yield select(selectPlaylistTrackURIs)
+
+    const config = {
+        headers: {
+            'Authorization': 'Bearer ' + authToken,
+        },
+    }
+    const body = {
+        'playlistName': playlistName,
+        'userID': userID,
+        'trackURIs': trackURIs
+    }
+
+    const response = yield axios.post('api/music/playlist', body, config)
+    
+    //  TODO - add some success here? setIsPending = false??
+
 }
 
 export function* watchForGetArtist() {

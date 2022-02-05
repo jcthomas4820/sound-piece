@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     authToken: '',
-    userID: '',
+    userID: '', //  TODO - change to simply id
     isPending: false,
 }
 
@@ -28,4 +28,5 @@ export const userSlice = createSlice({
 
 export const { setAuthToken, getAuthToken, extractAuthTokenFromUrl, getUserID, setUserID } = userSlice.actions
 export const selectAuthToken = state => state.user.authToken
+export const selectUserID = state => state.user.userID
 export default userSlice.reducer

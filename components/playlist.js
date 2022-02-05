@@ -7,11 +7,15 @@ function PlaylistModal(props){
 
     const dispatch = useDispatch()
 
+    const [playlistName, setPlaylistName] = useState('')
     const playlistArtists = useSelector(selectPlaylistArtists)
-    const onGenerateClick = () => dispatch(generatePlaylist())
+
+    const onChange = (e) => setPlaylistName(e.target.value)
+    const onGenerateClick = () => dispatch(generatePlaylist(playlistName))
 
     return(
         <> 
+            <input value={playlistName} onChange={onChange}></input>
             {playlistArtists.map(artist => <li key={getUniqueID()}>{artist.name}</li>)}
             <button onClick={onGenerateClick}>Generate</button>
             <br />

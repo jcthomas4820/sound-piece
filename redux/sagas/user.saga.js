@@ -8,6 +8,8 @@ import { getUniqueID } from "../../utils/getUniqueID";
 import { REDIRECT_URI, AUTH_STATE_KEY, SCOPE } from "../../utils/constants";
 import { buildAuthURL } from "../../utils/buildAuthURL";
 
+//  TODO - define endpoints in constants
+
 export function* requestAuthToken(){
 
     const clientID = CLIENT_ID

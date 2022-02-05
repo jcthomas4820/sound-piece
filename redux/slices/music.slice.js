@@ -27,9 +27,8 @@ export const musicSlice = createSlice({
         },
         addToPlaylist: (state) => {
             state.playlist.artists.push(state.artist)
-            state.playlist.tracks = [...state.playlist.tracks, state.artist.tracks.slice(0,5)]
         },
-        generatePlaylist: (state) => {
+        generatePlaylist: (state, action) => {
             state.isPending = true
         },
     }
@@ -38,4 +37,14 @@ export const musicSlice = createSlice({
 export const { getArtist, setArtist, generatePlaylist, addToPlaylist } = musicSlice.actions
 export const selectArtist = state => state.music.artist
 export const selectPlaylistArtists = state => state.music.playlist.artists
+export const selectPlaylistTrackURIs = state => {
+    const artists = state.music.playlist.artists
+    const trackURIs = []
+    artists.forEach(artist =>{
+        const artistTracks = artist.tracks
+        const topFiveTracks = artistTracks.slice(0,5)
+        topFiveTracks.forEach(track => trackURIs.push(track.uri))
+    })
+    return trackURIs
+}
 export default musicSlice.reducer
